@@ -1,0 +1,63 @@
+accessible: true
+author: François Michel
+context: |-
+    Poupi le chat est très paresseux, il ne fait que dormir et manger.
+
+    Voici le comportement de Poupi pendant une journée :
+
+    Poupi dort toute la journée tant qu'il est fatigué. Une fois qu'il n'est plus fatigué, il décide de manger, puis une nouvelle journée commence.
+environment: default
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    time: '3'
+    output: '2'
+name: Poupi le chat
+network_grading: false
+order: 1
+problems:
+    thecode:
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+            style="display:none"></xml>
+        options:
+            zoom:
+                minScale: 0.3
+                startScale: 1.0
+                controls: true
+                scaleSpeed: 1.2
+                maxScale: 3.0
+                wheel: false
+            grid:
+                spacing: 20
+                snap: true
+                length: 3
+                colour: '#ccc'
+            oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            toolboxPosition: start
+            maxBlocks: '6'
+            sounds: true
+            css: true
+            trashcan: true
+            scrollbars: true
+        name: Comportement de Poupi
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="toolbox" style="display: none;">
+              <block type="manger"></block>
+              <block type="dormir"></block>
+              <block type="fatigue"></block>
+              <block type="tantque"></block>
+            </xml>
+        type: blockly
+        blocks_files:
+        - blocks.js
+        header: Utilisez les blocs pour représenter le comportement de Poupi pendant
+            une journée (dormir tant qu'il est fatigué, puis manger)
+        language: python
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

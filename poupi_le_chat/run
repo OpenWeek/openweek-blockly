@@ -1,0 +1,34 @@
+#!/bin/python3
+# -*- coding: utf-8 -*-
+
+# Auteur(s) : Florian Thuin
+# This file is part of INGInious
+import os
+import subprocess
+import shlex
+from inginious import feedback
+from inginious import input
+
+
+if __name__ == "__main__":
+    os.chdir("student")
+    input.parse_template("studentmodule.py")
+    with open("studentmodule.py", 'r+') as f:
+        print(f.read())
+    p = subprocess.Popen(shlex.split("python3 studentmodule.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    # make_output = p.communicate()[0].decode('utf-8')
+
+    if p.returncode:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("La compilation de votre code a échoué. Voici l'erreur:" + make_output)
+        # feedback.set_global_feedback(rst.get_codeblock('', make_output), True)
+        exit(0)
+    else:
+        from student.studentmodule import student_code
+        retval = student_code()
+        if retval["count_slept"] == 3 and retval["count_eat"] == 1:
+            feedback.set_global_result("success")
+            feedback.set_global_feedback("Vous avez résolu l'exercice.")
+        else:
+            feedback.set_global_result("failed")
+            feedback.set_global_feedback("Votre code a affiché : %s" % retval)
