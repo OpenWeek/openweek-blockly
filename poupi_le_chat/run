@@ -16,12 +16,10 @@ if __name__ == "__main__":
     with open("studentmodule.py", 'r+') as f:
         print(f.read())
     p = subprocess.Popen(shlex.split("python3 studentmodule.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
-    # make_output = p.communicate()[0].decode('utf-8')
 
     if p.returncode:
         feedback.set_global_result("failed")
         feedback.set_global_feedback("La compilation de votre code a échoué. Voici l'erreur:" + make_output)
-        # feedback.set_global_feedback(rst.get_codeblock('', make_output), True)
         exit(0)
     else:
         from student.studentmodule import student_code
