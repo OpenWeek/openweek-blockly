@@ -1,0 +1,29 @@
+#!/bin/python3
+# -*- coding: utf-8 -*-
+
+# Auteur(s) : Robin Descamps
+# This file is part of INGInious
+import os
+import subprocess
+import shlex
+from inginious import feedback
+from inginious import input
+
+
+if __name__ == "__main__":
+    input.parse_template("gcd.py")
+
+    p = subprocess.Popen(shlex.split("python3 gcd.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    make_output = p.communicate()[0].decode('utf-8')
+
+    if p.returncode:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("La compilation de votre code a échoué. Voici l'erreur:" + make_output)
+        exit(0)
+    else:
+        if make_output == "\n":
+            feedback.set_global_result("success")
+            feedback.set_global_feedback("Vous avez résolu l'exercice.")
+        else:
+            feedback.set_global_result("failed")
+            feedback.set_global_feedback("Votre fonction échoue à résoudre un ou plusieurs tests :\n\n" + make_output)
