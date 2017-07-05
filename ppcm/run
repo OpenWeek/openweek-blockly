@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Auteur(s) : Florian Thuin
+# This file is part of INGInious
+import os 
+import subprocess
+import shlex
+from inginious import feedback
+from inginious import input
+
+if __name__ == "__main__":
+    os.chdir("student")
+    input.parse_template("ppcm.py")
+
+    p = subprocess.Popen(shlex.split("python3 ppcm.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    make_output = p.communicate()[0].decode('utf-8')
+
+    if p.returncode:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("Your code could not be executed. Please verify that all your blocks are correctly connected." + make_output)
+        exit(0)
+    elif make_output == "True\n":
+        feedback.set_global_result("success")
+        feedback.set_global_feedback("Vous avez résolu l'exercice.")
+    else:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("Your code prints: " + make_output)
