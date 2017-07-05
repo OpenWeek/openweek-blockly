@@ -1,0 +1,52 @@
+accessible: true
+author: François Duchêne et Damien Raquet
+context: |-
+    Damien est un élève ponctuel. Quand il se trouve en classe et qu'il entend la sonnerie de la récrée, il se rend directement dans la cour, et quand il est dans la cour, il va en classe. Tant qu'il ne sonne pas, il ne bouge pas.
+
+    A l'aide des blocs donnés, décris le comportement de Damien.
+environment: default
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    memory: '50'
+    output: '2'
+name: La cour de récréation
+network_grading: false
+problems:
+    Recree:
+        type: blockly
+        language: python
+        blocks_files:
+        - blocks.js
+        options:
+            media: /static/common/js/blockly/media/
+            trashcan: true
+            scrollbars: true
+            oneBasedIndex: true
+            css: true
+            toolboxPosition: start
+            sounds: true
+            maxBlocks: Infinity
+        workspace: <xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+        name: ''
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml"><category name="Actions" colour="285">
+              <block type="aller_en_classe"></block>
+              <block type="aller_cour"></block>
+            </category><category name="Conditions" colour="210">
+              <block type="il_sonne"></block>
+              <block type="dans_classe"></block>
+              <block type="dans_cour"></block>
+            </category><category name="Structures" colour="105">
+              <block type="controls_if"></block>
+              <block type="controls_if">
+                <mutation else="1"></mutation>
+              </block>
+            </category></xml>
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
