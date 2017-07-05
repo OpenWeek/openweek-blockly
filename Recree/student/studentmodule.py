@@ -3,6 +3,7 @@
 
 is_in_classe = 0
 is_in_cour = 0
+#condition pour savoir si sonnerie() a été appelée en premier
 dring = False
 
 def set_conditions_test(classe, cour):
@@ -48,9 +49,10 @@ def student_code():
 
 if __name__ == "__main__":
     erreur_test1 = False
+    #Premier test - cas il est dans la cour -> il va en classe
     set_conditions_test(0,1)
     retVal = student_code()
-    if retVal == {"is_in_classe": 1, "is_in_cour": 0}:
+    if retVal == {"is_in_classe": 1, "is_in_cour": 0}:  #Cas de base
         pass
     elif retVal == {"is_in_classe": 0, "is_in_cour": 1}:
         print('Damien ne se déplace pas, peut-être n\'a t\'il pas entendu la sonnerie ?')
@@ -61,10 +63,12 @@ if __name__ == "__main__":
     else:
         print("Il y a une erreur dans votre code.")
         erreur_test1 = True
+    #Si un test est faux, on ne print rien d'autre
     if erreur_test1 == False:
+        #Second test - cas il est dans la classe -> il va dans la cour
         set_conditions_test(1,0)
         retVal2 = student_code()
-        if retVal2 == {"is_in_classe": 0, "is_in_cour": 1}:
+        if retVal2 == {"is_in_classe": 0, "is_in_cour": 1}: #Cas de base
             print('True')
         elif retVal2 == {"is_in_classe": 1, "is_in_cour": 0}:
             print('Damien ne se déplace pas, peut-être n\'a t\'il pas entendu la sonnerie ?')
