@@ -43,7 +43,7 @@ Blockly.Blocks['id2'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(230);
-    this.setTooltip('bla');
+    this.setTooltip('');
     this.setHelpUrl('');
   }
 };
