@@ -1,0 +1,57 @@
+accessible: true
+author: Damien Raquet et François Duchêne
+context: |-
+    Michel a passé une interro il y a deux jours. Il aura les résultats demain. Sa maman lui a dit que s'il avait plus de 16 sur 20, il aurait une glace. Mais si il avait moins de 10 sur 20, il aurait son téléphone confisqué pour 2 jours. L'institutrice de Michel ne note qu'entre 0 et 20.
+
+    Écris un programme à l'aide des blocs disponibles qui indiquent à Michel si il aura une glace ou si il aura une punition.
+environment: default
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: Une bonne note
+network_grading: false
+problems:
+    interro:
+        options:
+            sounds: true
+            oneBasedIndex: true
+            toolboxPosition: start
+            trashcan: true
+            maxBlocks: Infinity
+            media: /static/common/js/blockly/media/
+            scrollbars: true
+            css: true
+        type: blockly
+        name: ''
+        toolbox: |-
+            <xml><category name="Actions" colour="210">
+              <block type="confisquation"></block>
+              <block type="glace"></block>
+              <block type="content"></block>
+            </category><category name="Conditions" colour="135">
+              <block type="points"></block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+              </block>
+            </category></xml>
+        language: python
+        blocks_files:
+        - blocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="controls_if" deletable="false" movable="false" editable="false">
+                <mutation elseif="1" else="1"></mutation>
+              </block>
+            </xml>
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
