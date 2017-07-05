@@ -20,7 +20,7 @@ if __name__ == "__main__":
     
     if p.returncode:
         feedback.set_global_result("failed")
-        feedback.set_global_feedback("Ca ne peut pas fonctionner: vous vérifiez l'emboitement des blocs, l'utilisation de TOUS les blocs et le placement de changement de la carte z.\n")
+        feedback.set_global_feedback("Ca ne peut pas fonctionner: vous vérifiez l'emboitement des blocs, l'utilisation de TOUS les blocs.\n")
         exit(0)
     if make_output == "True":
         feedback.set_global_result("success")
