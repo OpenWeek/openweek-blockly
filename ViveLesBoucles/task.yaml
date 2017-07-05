@@ -2,6 +2,7 @@ accessible: true
 author: Olivier Martin
 context: |
     - Assemblez les blocs afin que l'imprimante imprime ``1 22 333 4444 55555 666666``
+    - Tous les blocs ne sont pas nécessaires
 environment: default
 evaluate: best
 groups: false

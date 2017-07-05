@@ -4,6 +4,7 @@ context: |
     - Agencez les blocs pour compléter la fonction ``MaximumListe``
     - Cette fonction doit retourner le plus grand élément de la liste ``Liste``
     - ``Liste`` contient des entiers positifs et négatifs
+    - Tous les blocs ne sont pas nécessaires
 environment: default
 evaluate: best
 groups: false
