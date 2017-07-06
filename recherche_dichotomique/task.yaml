@@ -1,0 +1,72 @@
+accessible: true
+author: Naitali Brandon
+context: |+
+    Vous êtes étudiant et vous êtes engagé par la famille Martin comme babysitter. Vous arrivez chez la famille et commencez à surveiller le petit enfant de 6 ans, Robin. Un peu plus tard dans la soirée, le petit vous demande si le mot "tripatouiller" existe. Vous lui proposez d'aller voir dans le dictionnaire mais malheureusement, celui-ci avoue, un peu honteux, qu'il ne sait pas l'utiliser. Dans un élan de bonté et dans un souci d'aide de votre prochain, vous décidez de lui expliquer une manière simple de chercher son mot:
+
+    - 1. Vérifier d'abord si ton dictionnaire ne contient qu'un mot et que celui-ci est bien le mot que tu recherches; si oui, formidable tu l'as trouvé!;
+    - 2. Si ton dictionnaire ne contient qu'un mot et que celui-ci n'est pas le mot que tu cherches; si oui, dommage, ton mot n'existe pas!;
+    - 3. Sinon, tu prends le mot du milieu du dictionnaire;
+    - 4. Tu compares le milieu au mot que tu recherches;
+    - 5. Si le mot est le même, par pur hasard, alors formidable, tu l'as trouvé!;
+    - 6. Si le mot prècède le mot du milieu, alors tu peux ignorer la seconde moitié du dictionnaire et recommencer la procédure depuis l'étape 1 avec la première moitié du dictionnaire;
+    - 7. Si le mot suit le mot du milieu, alors tu peux exclure la première moitié du dictionnaire et recommencer la procédure depuis l'étape 1 avec la seconde moitié de dictionnaire;
+
+    Pour lui expliquer de manière ludique cette méthode, vous décidez d'utiliser les blocs ci-dessous pour lui expliquer.
+    Tentez d'enseigner la recherche binaire au petit Robin!
+
+
+
+environment: java8scala
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: Professeur improvisé
+network_grading: false
+problems:
+    thecode:
+        options:
+            media: /static/common/js/blockly/media/
+            maxBlocks: Infinity
+            sounds: true
+            oneBasedIndex: true
+            trashcan: true
+            css: true
+            toolboxPosition: start
+            scrollbars: true
+        header: ''
+        blocks_files:
+        - blocks.js
+        type: blockly
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
+                <mutation>
+                  <arg name="dictionnaire"></arg>
+                  <arg name="mot"></arg>
+                </mutation>
+                <field name="NAME">recherche binaire</field>
+                <comment pinned="false" h="32" w="190">Recherche d'un mot dans un dictionnaire</comment>
+              </block>
+            </xml>
+        name: Recherche binaire
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="casfinal"></block>
+              <block type="prendremoitie2"></block>
+              <block type="milieu"></block>
+              <block type="prendremoitie1"></block>
+              <block type="else"></block>
+              <block type="casfinal2"></block>
+              <block type="conditionavant"></block>
+              <block type="conditiontrouve"></block>
+              <block type="conditionapres"></block>
+            </xml>
+        language: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
