@@ -59,7 +59,7 @@ problems:
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="procedures_defreturn" editable="false">
                 <mutation>
-                  <arg name="my_list"></arg>
+                  <arg name="ferme"></arg>
                   <arg name="type_animal"></arg>
                 </mutation>
                 <field name="NAME">compter les animaux</field>
@@ -74,7 +74,7 @@ problems:
                 <field name="VAR">type_animal</field>
               </block>
               <block type="variables_get">
-                <field name="VAR">my_list</field>
+                <field name="VAR">ferme</field>
               </block>
             </xml>
         type: blockly
