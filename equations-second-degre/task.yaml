@@ -1,0 +1,121 @@
+accessible: true
+author: Robin Descamps
+context: Résoudre une équation du second degré de type **ax² + bx + c = 0**
+environment: java8scala
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: Équation du second degré
+network_grading: false
+problems:
+    equations-second-degre:
+        options:
+            media: /static/common/js/blockly/media/
+            zoom:
+                startScale: 1.0
+                scaleSpeed: 1.2
+                controls: true
+                maxScale: 3.0
+                minScale: 0.3
+                wheel: false
+            toolboxPosition: start
+            maxBlocks: Infinity
+            oneBasedIndex: true
+            trashcan: true
+            sounds: true
+            scrollbars: true
+            css: true
+        type: blockly
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
+                <mutation>
+                  <arg name="a"></arg>
+                  <arg name="b"></arg>
+                  <arg name="c"></arg>
+                </mutation>
+                <field name="NAME">resoudre_equation_second_degre</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+            </xml>
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="math_single">
+                <field name="OP">NEG</field>
+                <value name="NUM">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="controls_if">
+                <mutation else="1"></mutation>
+              </block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR">delta</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR">solution</field>
+              </block>
+              <block type="solutions">
+                <field name="solution">solution</field>
+                <field name="solution_2">solution_2</field>
+              </block>
+              <block type="math_arithmetic">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="controls_if">
+                <mutation elseif="1" else="1"></mutation>
+              </block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">a</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">b</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">c</field>
+              </block>
+              <block type="delta"></block>
+              <block type="x2"></block>
+              <block type="ensemble_vide"></block>
+              <block type="x1"></block>
+              <block type="delta0"></block>
+              <block type="reels"></block>
+            </xml>
+        blocks_files:
+        - blocks.js
+        language: python
+        header: |-
+            La fonction ``resoudre_equation_second_degre`` doit pouvoir résoudre toute équation de type **ax² + bx + c = 0** (*a, b, c* ∈ ℝ). Les paramètres ``a``, ``b`` et ``c`` de la fonction correspondent aux coefficents de l'équation.
+
+            - Pensez à gérer **TOUS** les cas : *a*, *b* et *c* peuvent prendre n'importe quelle valeur réelle.
+            - ``solution`` contiendra la solution de l'équation si celle-ci ne possède qu'une racine (ou une racine double). ``solution_2`` contiendra la deuxième racine si l'équation possède deux racines différentes. Votre fonction ne retourne pas de résultat.
+            - Certaines formules vous sont données pour plus de facilité.
+            - ``delta`` et Δ représentent la même variable.
+            - Tous les blocs doivent normalement être utilisés.
+        name: Résolution d'équation du second degré
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

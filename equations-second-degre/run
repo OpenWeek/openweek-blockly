@@ -1,0 +1,33 @@
+#!/bin/python3
+# -*- coding: utf-8 -*-
+
+# Auteur(s) : Robin Descamps
+# This file is part of INGInious
+import os
+import subprocess
+import shlex
+from inginious import feedback
+from inginious import input
+
+
+if __name__ == "__main__":
+    input.parse_template("equations-second-degre.py")
+
+    p = subprocess.Popen(shlex.split("python3 equations-second-degre.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    make_output = p.communicate()[0].decode('utf-8')
+
+    if p.returncode:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("La compilation de votre code a échoué. Voici l'erreur:" + make_output)
+        exit(0)
+    else:
+        grade = int(make_output[:3])
+        if grade == 100:
+            feedback.set_grade(grade)
+            feedback.set_global_result("success")
+            feedback.set_global_feedback("Vous avez résolu l'exercice.\n\n" + make_output[3:])
+        else:
+            grade = int(make_output[:2])
+            feedback.set_grade(grade)
+            feedback.set_global_result("failed")
+            feedback.set_global_feedback("Votre fonction échoue à résoudre tout type d'équation du second degré :\n\n" + make_output[3:])
