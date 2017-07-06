@@ -1,6 +1,8 @@
 #!/bin/python3
 # Code to be verified
 
+#    This file is part of INGInious.
+#    Copyright (C) 2017, Duchêne François et Raquet Damien
 points_interro = 12
 a_moins_10 = False
 a_entre_10_et_16 = False
@@ -44,6 +46,7 @@ if __name__ == "__main__":
         set_cond_test(i)
         ret = student_code()
         #Trois cas possibles, michel a eu - de 10, l'étudiant a eu entre 10 et 16 et l'étudiant a + de 16
+        #Une seule des conditions ne peut être True
         if ret == {"a_moins_10": True, "a_entre_10_et_16": False, "a_plus_16": False} and points_interro < 10:
             pass
         elif ret == {"a_moins_10": False, "a_entre_10_et_16": True, "a_plus_16": False} and points_interro < 17 and 9 < points_interro :

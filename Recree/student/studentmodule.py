@@ -1,6 +1,10 @@
 #!/bin/python3
 # Code to be verified
 
+#    This file is part of INGInious.
+#    Copyright (C) 2017, Duchêne François et Raquet Damien
+
+#L'une de ces deux valeurs doit être mise à 1 et l'autre à 0
 is_in_classe = 0
 is_in_cour = 0
 #condition pour savoir si sonnerie() a été appelée en premier

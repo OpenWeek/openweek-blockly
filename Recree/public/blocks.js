@@ -1,3 +1,13 @@
+/*
+    This file is part of INGInious.
+    Copyright (C) 2017, Duchêne François et Raquet Damien
+*/
+
+/*
+  Définitions des blocs
+*/
+
+//Blocs actions
 Blockly.Blocks['aller_en_classe'] = {
   init: function() {
     this.setPreviousStatement(true, null);
@@ -20,6 +30,7 @@ Blockly.Blocks['aller_cour'] = {
   }
 };
 
+//Blocs Conditions
 Blockly.Blocks['il_sonne'] = {
   init: function() {
     this.appendDummyInput()
@@ -52,6 +63,10 @@ Blockly.Blocks['dans_cour'] = {
     this.setHelpUrl('');
   }
 };
+
+/*
+  Actions des blocs
+*/
 
 Blockly.Python['aller_en_classe'] = function(block) {
   var code = 'classe()\n';

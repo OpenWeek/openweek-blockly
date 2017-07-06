@@ -1,9 +1,9 @@
 accessible: true
 author: Damien Raquet et François Duchêne
 context: |-
-    Michel a passé une interro il y a deux jours. Il aura les résultats demain. Sa maman lui a dit que s'il avait plus de 16 sur 20, il aurait une glace. Mais si il avait moins de 10 sur 20, il aurait son téléphone confisqué pour 2 jours. L'institutrice de Michel ne note qu'entre 0 et 20.
+    Michel a passé une interro il y a deux jours. L'interro était notée sur 20 sans points négatifs, il aura les résultats demain.
 
-    Écris un programme à l'aide des blocs disponibles qui indiquent à Michel si il aura une glace ou si il aura une punition.
+    Sa maman lui a dit que s'il avait plus de 16 sur 20, il aurait une glace. Mais si il avait moins de 10 sur 20, il aurait son téléphone confisqué pour 2 jours. Si il a entre 10 et 16, elle est contente de lui.
 environment: default
 evaluate: best
 groups: false
@@ -15,17 +15,17 @@ name: Une bonne note
 network_grading: false
 problems:
     interro:
-        options:
-            sounds: true
-            oneBasedIndex: true
-            toolboxPosition: start
-            trashcan: true
-            maxBlocks: Infinity
-            media: /static/common/js/blockly/media/
-            scrollbars: true
-            css: true
+        language: python
         type: blockly
-        name: ''
+        options:
+            maxBlocks: Infinity
+            css: true
+            toolboxPosition: start
+            media: /static/common/js/blockly/media/
+            sounds: true
+            trashcan: true
+            oneBasedIndex: true
+            scrollbars: true
         toolbox: |-
             <xml><category name="Actions" colour="210">
               <block type="confisquation"></block>
@@ -40,16 +40,17 @@ problems:
                 <field name="OP">EQ</field>
               </block>
             </category></xml>
-        language: python
-        blocks_files:
-        - blocks.js
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="controls_if" deletable="false" movable="false" editable="false">
                 <mutation elseif="1" else="1"></mutation>
               </block>
             </xml>
-        header: ''
+        name: ''
+        blocks_files:
+        - blocks.js
+        header: Écris un programme à l'aide des blocs disponibles qui indiquent à
+            Michel s'il aura une glace ou s'il aura une punition.
 stored_submissions: 0
 submission_limit:
     amount: -1

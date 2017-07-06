@@ -1,3 +1,10 @@
+/*
+    This file is part of INGInious.
+    Copyright (C) 2017, Duchêne François et Raquet Damien
+*/
+/*
+  Définitions des blocs
+*/
 Blockly.Blocks['confisquation'] = {
   init: function() {
     this.appendDummyInput()
@@ -41,6 +48,10 @@ Blockly.Blocks['points'] = {
     this.setHelpUrl('');
   }
 };
+
+/*
+  Actions des blocs
+*/
 
 Blockly.Python['confisquation'] = function(block) {
   var code = 'confisquer()\n';
