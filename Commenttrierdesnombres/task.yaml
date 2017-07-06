@@ -36,38 +36,23 @@ environment: java8scala
 evaluate: best
 groups: false
 limits:
-    memory: '100'
     time: '30'
     output: '2'
+    memory: '100'
 name: Entretien stressant
 network_grading: false
 problems:
     thecode:
-        blocks_files:
-        - blocks.js
         options:
-            oneBasedIndex: true
-            css: true
             toolboxPosition: start
             scrollbars: true
+            oneBasedIndex: true
             sounds: true
-            trashcan: true
             media: /static/common/js/blockly/media/
+            trashcan: true
             maxBlocks: Infinity
-        language: ''
-        workspace: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
-                <mutation>
-                  <arg name="paquet"></arg>
-                </mutation>
-                <field name="NAME">trier par selection</field>
-                <comment pinned="false" h="32" w="190">Recette de tri par selection d'un paquet de carte</comment>
-              </block>
-            </xml>
+            css: true
         type: blockly
-        name: Tri par selection
-        header: ''
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="foreach"></block>
@@ -84,6 +69,21 @@ problems:
                 <field name="VAR">y</field>
               </block>
             </xml>
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
+                <mutation>
+                  <arg name="paquet"></arg>
+                </mutation>
+                <field name="NAME">trier par selection</field>
+                <comment pinned="false" h="32" w="190">Recette de tri par selection d'un paquet de carte</comment>
+              </block>
+            </xml>
+        language: ''
+        blocks_files:
+        - blocks.js
+        header: ''
+        name: Tri par selection
 stored_submissions: 0
 submission_limit:
     amount: -1

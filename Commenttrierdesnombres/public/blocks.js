@@ -1,42 +1,17 @@
-Blockly.Blocks['statement2'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("La carte z devient la carte x");
-    this.setPreviousStatement(true, null);
-    this.setNextStatement(true, null);
-
-    this.setColour(315);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  }
-};
-
-
-Blockly.Python['statement2'] = function(block) {
-  // TODO: Assemble Python into code variable.
-  var code = 'z=x\n';
-  return code;
-};
-
-
-Blockly.Blocks['statement'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("La carte z devient la carte y");
-    this.setPreviousStatement(true, null);
-
-    this.setColour(315);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  }
-};
-
-
-Blockly.Python['statement'] = function(block) {
-  // TODO: Assemble Python into code variable.
-  var code = 'z=y\n';
-  return code;
-};
+/*
+#  Copyright (c)  2017 Brandon Naitali
+#  This program is free software: you can redistribute it and/or modify
+#  it under the terms of the GNU Affero General Public License as published by
+#  the Free Software Foundation, either version 3 of the License, or
+#  (at your option) any later version.
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU Affero General Public License for more details.
+#
+#  You should have received a copy of the GNU Affero General Public License
+#  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
 
 
 Blockly.Blocks['swap'] = {
