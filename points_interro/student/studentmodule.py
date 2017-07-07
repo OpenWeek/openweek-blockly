@@ -56,7 +56,17 @@ if __name__ == "__main__":
     # On teste sur les 20 valeurs possibles
     for i in range(0,21):
         set_cond_test(i)
-        ret = student_code()
+        ret = None
+
+        # FIXME(vinsifroid) The try-except should not be needed by there is a bug in blockly
+        # if-block generate "false" instead of "False", if it is correct feel free
+        # to remove this try-except.
+        try:
+            ret = student_code()
+        except NameError:
+            import sys
+            print('Il y a une petite erreur dans les blocs. Peut-être qu\'une des conditions est vide ?')
+            sys.exit(0)
         #Trois cas possibles, michel a eu - de 10, l'étudiant a eu entre 10 et 16 et l'étudiant a + de 16
         #Une seule des conditions ne peut être True
         if ret == {"a_moins_10": True, "a_entre_10_et_16": False, "a_plus_16": False} and points_interro < 10:
@@ -69,5 +79,5 @@ if __name__ == "__main__":
             #si un test échoue, on ne print pas True
             pass_test=False
             print('Ton programme ne fonctionne si Michel a eu ' + str(i) + "\n")
-    if pass_test:
-        print('True')
+        if pass_test:
+            print('True')

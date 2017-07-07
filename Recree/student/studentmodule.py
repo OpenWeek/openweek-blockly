@@ -73,7 +73,19 @@ if __name__ == "__main__":
     #Série de test. on test les déplacements effetués par l'élève et on print une phrase selon le type d'erreur
     #les deux cas de base sont testés (d'abord dans la cour, puis en classe))
     set_conditions_test(0,1)
-    ret = student_code_test1()
+
+    ret = None
+
+    # FIXME(vinsifroid) The try-except should not be needed by there is a bug in blockly
+    # if-block generate "false" instead of "False", if it is correct feel free
+    # to remove this try-except.
+    try:
+        ret = student_code_test1()
+    except NameError:
+        import sys
+        print('Il y a une petite erreur dans les blocs. Peut-être qu\'une des conditions est vide ?')
+        sys.exit(0)
+
     if ret == {"al_moved_cour": False, "al_moved_classe": True}:
         set_conditions_test(1,0)
         ret = student_code_test1()
