@@ -1,0 +1,57 @@
+accessible: true
+author: Arnaud Stoz
+context: |-
+    Créez une méthode "Fact"  permettant de calculer la factorielle du nombre passé en argument.
+
+    Attention, le paramètre passé en argument peut être négatif
+environment: java7
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    time: '30'
+    memory: '100'
+name: 'Fonction factorielle '
+network_grading: false
+problems:
+    Q1:
+        options:
+            scrollbars: true
+            maxBlocks: Infinity
+            sounds: true
+            trashcan: true
+            oneBasedIndex: true
+            toolboxPosition: start
+            media: /static/common/js/blockly/media/
+            css: true
+        language: java
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="fonction"></block>
+              <block type="if"></block>
+              <block type="_1"></block>
+              <block type="comparaison"></block>
+              <block type="result"></block>
+              <block type="initi"></block>
+              <block type="parametre"></block>
+              <block type="inc"></block>
+              <block type="mult"></block>
+              <block type="equal"></block>
+              <block type="ziro"></block>
+              <block type="for"></block>
+              <block type="return"></block>
+            </xml>
+        name: ''
+        header: |-
+            Ecrivez le corps de la fonction fact qui calcul la factoriel d'un paramètre
+
+            si le nombre passé en argument est négatif votre fonction doit retourner -1
+        blocks_files:
+        - blocks.js
+        workspace: <xml></xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
