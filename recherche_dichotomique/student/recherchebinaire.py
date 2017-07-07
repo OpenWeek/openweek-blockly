@@ -18,13 +18,18 @@ if __name__ == "__main__":
         exit(0)
        
 	# 
-    exemple=[1,3]
+    exemple1=[1,3]
     
-    if(not recherche_binaire(exemple,3)):
-        print('vous vous rendez compte que vous ne trouvez pas le mot alors qu\'il existe! Vous vérifiez si vous signalez que le mot est présent dans un dictionnaire contenant plusieurs mots.', end='', flush=True)
+    if(not recherche_binaire(exemple1,3)):
+        print('vous vous rendez compte que vous ne prenez pas le cas où vous trouvez le mot dans le dictionnaire!', end='', flush=True)
+        exit(0)
+    #
+    exemple2=[1,2,3,4,5,6,7,8,9,10]
+    
+    if(not recherche_binaire(exemple2,9)):
+        print('vous vous rendez compte que vous choisissez les mauvaises parties du dictionnaire! Vous vérifiez les blocs correspondants.', end='', flush=True)
         exit(0)
     
-   
     #Si tous les tests sont passés
     print('True', end='', flush=True)
  	

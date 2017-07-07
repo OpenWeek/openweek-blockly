@@ -20,13 +20,13 @@ context: |
 
     Fonctionnement de Blockly:
 
-    - À droite se trouve vos blocs disponibles, votre boîte à outils;
-    - À gauche se trouve ce que vous comptez montrer au patron;
+    - À gauche se trouve vos blocs disponibles, votre boîte à outils;
+    - À droite se trouve ce que vous comptez montrer au patron;
     - Glissez les blocs de gauche à droite pour construire votre méthode;
     - Il ne peut pas y avoir de bloc sans point d'accroche;
     - Attention, les blocs doivent s'emboîter!
 
-    Voiçi un exemple* avec un tas de 7 cartes:
+    Voici un exemple avec un tas de 10 cartes*:
 
           .. image:: Commenttrierdesnombres/selection_sort_animation.gif
                :height: 180px
@@ -44,15 +44,30 @@ network_grading: false
 problems:
     thecode:
         options:
+            sounds: true
+            trashcan: true
+            oneBasedIndex: true
+            css: true
+            media: /static/common/js/blockly/media/
+            maxBlocks: Infinity
             toolboxPosition: start
             scrollbars: true
-            oneBasedIndex: true
-            sounds: true
-            media: /static/common/js/blockly/media/
-            trashcan: true
-            maxBlocks: Infinity
-            css: true
+        name: Tri par selection
         type: blockly
+        header: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
+                <mutation>
+                  <arg name="paquet"></arg>
+                </mutation>
+                <field name="NAME">trier par selection</field>
+                <comment pinned="false" h="32" w="190">Recette de tri par selection d'un paquet de carte</comment>
+              </block>
+            </xml>
+        language: ''
+        blocks_files:
+        - blocks.js
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="foreach"></block>
@@ -69,21 +84,6 @@ problems:
                 <field name="VAR">y</field>
               </block>
             </xml>
-        workspace: |-
-            <xml xmlns="http://www.w3.org/1999/xhtml">
-              <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
-                <mutation>
-                  <arg name="paquet"></arg>
-                </mutation>
-                <field name="NAME">trier par selection</field>
-                <comment pinned="false" h="32" w="190">Recette de tri par selection d'un paquet de carte</comment>
-              </block>
-            </xml>
-        language: ''
-        blocks_files:
-        - blocks.js
-        header: ''
-        name: Tri par selection
 stored_submissions: 0
 submission_limit:
     amount: -1

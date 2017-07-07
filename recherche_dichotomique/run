@@ -20,7 +20,7 @@ if __name__ == "__main__":
     
     if p.returncode:
         feedback.set_global_result("failed")
-        feedback.set_global_feedback("Vous vous rendez compte que soit vous ne mentionnez jamais le milieu du dictionnaire, soit vous prenez arbitrairement une partie du dictionnaire.")
+        feedback.set_global_feedback("Vous vous rendez compte qu'il vous manque certains blocs primordiaux!")
         exit(0)
     if make_output == "True":
         feedback.set_global_result("success")
