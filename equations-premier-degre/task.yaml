@@ -1,6 +1,6 @@
 accessible: true
 author: Robin Descamps
-context: Résoudre une équation du second degré de type ax + b = 0
+context: Résoudre une équation du premier degré de type ax + b = 0
 environment: java8scala
 evaluate: best
 groups: false
