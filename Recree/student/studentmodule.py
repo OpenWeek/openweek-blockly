@@ -21,24 +21,30 @@ is_in_classe = 0
 is_in_cour = 0
 #condition pour savoir si sonnerie() a été appelée en premier
 dring = False
+al_moved_cour = False
+al_moved_classe = False
 
 def set_conditions_test(classe, cour):
-    global is_in_cour, is_in_classe, dring
+    global is_in_cour, is_in_classe, dring, al_moved_cour, al_moved_classe
     is_in_cour = cour
     is_in_classe = classe
     dring = False
+    al_moved_cour = False
+    al_moved_classe = False
 
 def classe():
-    global is_in_cour, is_in_classe, dring
+    global is_in_cour, is_in_classe, dring, al_moved_classe
     if dring:
         is_in_cour = 0
         is_in_classe += 1
+        al_moved_classe = True
 
 def cour():
-    global is_in_cour, is_in_classe, dring
+    global is_in_cour, is_in_classe, dring, al_moved_cour
     if dring:
         is_in_classe = 0
         is_in_cour += 1
+        al_moved_cour = True
 
 def sonnerie():
     global dring
@@ -59,36 +65,29 @@ def dans_cour():
     else:
         return False
 
-def student_code():
+def student_code_test1():
 @    @Recree@@
-    return {"is_in_classe": is_in_classe, "is_in_cour": is_in_cour}
+    return {"al_moved_cour": al_moved_cour, "al_moved_classe": al_moved_classe}
 
 if __name__ == "__main__":
-    erreur_test1 = False
-    #Premier test - cas il est dans la cour -> il va en classe
+    #Série de test. on test les déplacements effetués par l'élève et on print une phrase selon le type d'erreur
+    #les deux cas de base sont testés (d'abord dans la cour, puis en classe))
     set_conditions_test(0,1)
-    retVal = student_code()
-    if retVal == {"is_in_classe": 1, "is_in_cour": 0}:  #Cas de base
-        pass
-    elif retVal == {"is_in_classe": 0, "is_in_cour": 1}:
-        print('Damien ne se déplace pas, peut-être n\'a t\'il pas entendu la sonnerie ?')
-        erreur_test1 = True
-    elif retVal == {"is_in_classe": 0, "is_in_cour": 2}:
-        print('Es-tu sûr que Damien va au bon endroit ?')
-        erreur_test1 = True
-    else:
-        print("Il y a une erreur dans votre code.")
-        erreur_test1 = True
-    #Si un test est faux, on ne print rien d'autre
-    if erreur_test1 == False:
-        #Second test - cas il est dans la classe -> il va dans la cour
+    ret = student_code_test1()
+    if ret == {"al_moved_cour": False, "al_moved_classe": True}:
         set_conditions_test(1,0)
-        retVal2 = student_code()
-        if retVal2 == {"is_in_classe": 0, "is_in_cour": 1}: #Cas de base
+        ret = student_code_test1()
+        if ret == {"al_moved_cour": True, "al_moved_classe": False}:
             print('True')
-        elif retVal2 == {"is_in_classe": 1, "is_in_cour": 0}:
-            print('Damien ne se déplace pas, peut-être n\'a t\'il pas entendu la sonnerie ?')
-        elif retVal2 == {"is_in_classe": 2, "is_in_cour": 0}:
-            print('Es-tu sûr que Damien va au bon endroit ?')
+        elif ret == {"al_moved_cour": False, "al_moved_classe": False}:
+            print('Damien ne se déplace pas. Il va être en retard !\n')
+        elif ret == {"al_moved_cour": False, "al_moved_classe": True}:
+            print('Damien va en classe alors qu\'ily est déjà.\n')
         else:
-            print("Il y a une erreur dans votre code.")
+            print('Damien se déplace deux fois, il ne devrait se déplacer qu\'une seule fois.\n')
+    elif ret == {"al_moved_cour": False, "al_moved_classe": False}:
+        print('Damien ne se déplace pas. Il va être en retard !\n')
+    elif ret == {"al_moved_cour": True, "al_moved_classe": False}:
+        print('Damien va en cours alors qu\'ily est déjà.\n')
+    else:
+        print('Damien se déplace deux fois, il ne devrait se déplacer qu\'une seule fois. \n')
