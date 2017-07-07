@@ -1,12 +1,14 @@
 accessible: true
 author: Olivier Martin
 context: |-
-    - Assemblez les blocs afin de reproduire parfaitement la figure géométrique présente ci-dessous.
+    - Assemblez les blocs afin de **reproduire parfaitement la figure géométrique** présente ci-dessous.
     - Les cases à reproduire disposent chacune de coordonnées afin de vous aider.
-    - Attention, si vous placez des cases à des coordonnées très éloignées par exemple (10, 10), ceux-ci ne seront pas visibles.
     - Le bloc ``placer une case à la position i j`` équivaut à placer une case à la coordonnée (i, j).
-    - Tous les blocs Blockly ne sont pas nécessaires.
-    - Utilisez des boucles et des conditions afin de résoudre cet exercice.
+    - Remarques:
+        - Vous pouvez placer plusieurs cases sur le même emplacement.
+        - Si vous placez des cases à des coordonnées très éloignées *par exemple en (10, 10)*, celles-ci ne seront pas visibles.
+        - Tous les blocs *Blockly* ne sont pas nécessaires.
+        - Utilisez des boucles et des conditions afin de résoudre cet exercice.
 environment: default
 evaluate: best
 groups: false
@@ -33,6 +35,9 @@ problems:
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="math_number">
                 <field name="NUM">0</field>
+              </block>
+              <block type="controls_if">
+                <mutation elseif="1"></mutation>
               </block>
               <block type="controls_if"></block>
               <block type="controls_for">
@@ -122,7 +127,7 @@ problems:
                 </value>
               </block>
             </xml>
-        name: Couleur
+        name: Reproduction de figure
         language: ''
         type: blockly
         blocks_files:
