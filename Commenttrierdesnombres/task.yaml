@@ -39,7 +39,7 @@ limits:
     time: '30'
     output: '2'
     memory: '100'
-name: Entretien stressant
+name: 'Le tri par selection: Entretien stressant'
 network_grading: false
 problems:
     thecode:

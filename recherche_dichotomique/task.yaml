@@ -23,7 +23,7 @@ limits:
     time: '30'
     output: '2'
     memory: '100'
-name: Professeur improvisé
+name: 'La recherche binaire: Professeur improvisé'
 network_grading: false
 problems:
     thecode:
