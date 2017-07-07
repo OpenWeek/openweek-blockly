@@ -24,7 +24,7 @@ Blockly.Blocks['le_minimum'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(65);
+    this.setColour(120);
     this.setTooltip('la valeur minimum');
     this.setHelpUrl('');
   }
@@ -57,7 +57,7 @@ Blockly.Blocks['liste'] = {
 Blockly.Blocks['actual_liste'] = {
   init: function() {
     this.appendDummyInput()
-        .appendField("l element plus petit que minimum");
+        .appendField("l element plus petit que le minimum actuel");
     this.setInputsInline(true);
     this.setOutput(true, null);
     this.setColour(20);
@@ -73,7 +73,7 @@ Blockly.Blocks['init_minimum'] = {
     this.setInputsInline(true);
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
-    this.setColour(65);
+    this.setColour(120);
     this.setTooltip('fixe la variable minimum');
     this.setHelpUrl('');
   }

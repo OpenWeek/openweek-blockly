@@ -21,8 +21,9 @@ if __name__ == "__main__":
 				print("votre résultat : " + str(minimum(test)) + " \n résultat attendu : " + str(my_minimum(test)) + "\n la liste était : "+ str(test))
 
 				test_passed = False
-		except TypeError:
+		except TypeError as erreur_return:
 			test_passed = False
-			print("la variable minimum n est pas défini \n")			
+			print("la variable minimum n est pas défini \n")
+			print("Voici l'erreur : ", erreur_return )			
 	if test_passed:
 		print(test_passed)

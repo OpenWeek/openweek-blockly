@@ -5,30 +5,35 @@ environment: default
 evaluate: best
 groups: false
 limits:
-    output: '2'
-    time: '30'
     memory: '100'
-name: ''
+    time: '30'
+    output: '2'
+name: trouver le minimum d'une liste
 network_grading: false
 problems:
     q1:
-        language: python
+        name: trouver le minimum d'une liste
         options:
+            maxBlocks: Infinity
             oneBasedIndex: true
-            sounds: true
-            css: true
+            trashcan: true
             media: /static/common/js/blockly/media/
             scrollbars: true
+            css: true
             toolboxPosition: start
-            maxBlocks: Infinity
-            trashcan: true
-        name: trouver le minimum d'une liste
-        type: blockly
-        blocks_files:
-        - blocks.js
+            sounds: true
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
             style="display:none"></xml>
+        language: python
+        header: |
+            Vous devez créer une fonction ``minimum`` qui retourne l'élément le plus petit d'une liste passée en paramètre.
+
+            Pour rappel une liste est une suite de nombre. Par exemple:
+            [1, 2, 3] où [4,5,8,2].
+
+            Pour ces deux exemples, votre programme doit retourner 1 et 2
+        type: blockly
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="tant_que"></block>
@@ -48,15 +53,9 @@ problems:
                 <field name="NAME">minimum</field>
                 <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
               </block>
-              <block type="variables_get">
-                <field name="VAR">il y a des elements dans la liste</field>
-              </block>
             </xml>
-        header: |
-            Vous devez créer une fonction qui retourne l'élément le plus petit d'une liste passée en paramètre. \n
-            Pour rappel une liste est une suite de nombre. Par exemple:
-            [1, 2, 3] où [4,5,8,2]. \n
-            Dans ces deux exemples, votre programme doit retourner 1 et 2
+        blocks_files:
+        - blocks.js
 stored_submissions: 0
 submission_limit:
     amount: -1
