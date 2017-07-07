@@ -4,14 +4,14 @@ context: |+
     Vous êtes étudiant et vous êtes engagé par la famille Martin comme babysitter. Vous arrivez chez la famille et commencez à surveiller le petit enfant de 6 ans, Robin. Un peu plus tard dans la soirée, le petit vous demande si le mot "tripatouiller" existe. Vous lui proposez d'aller voir dans le dictionnaire mais malheureusement, celui-ci avoue, un peu honteux, qu'il ne sait pas l'utiliser. Dans un élan de bonté et dans un souci d'aide de votre prochain, vous décidez de lui expliquer une manière simple de chercher son mot:
 
 
-    - 1. Si ton dictionnaire ne contient qu'un mot et que celui-ci n'est pas le mot que tu cherches; si oui, dommage, ton mot n'existe pas!;
+    - 1. Si ton dictionnaire ne contient qu'un mot et que celui-ci n'est pas le mot que tu cherches, dommage, ton mot n'existe pas!;
     - 2. Sinon, tu prends le mot du milieu du dictionnaire;
     - 3. Tu compares le milieu au mot que tu recherches;
     - 4. Si le mot est le même, alors formidable, tu l'as trouvé!;
     - 5. Si le mot prècède le mot du milieu, alors tu peux ignorer la seconde moitié du dictionnaire et recommencer la procédure depuis l'étape 1 avec la première moitié du dictionnaire;
     - 6. Si le mot suit le mot du milieu, alors tu peux exclure la première moitié du dictionnaire et recommencer la procédure depuis l'étape 1 avec la seconde moitié de dictionnaire;
 
-    Pour lui expliquer de manière ludique cette méthode, vous décidez d'utiliser les blocs ci-dessous pour lui expliquer.
+    Pour lui expliquer de manière ludique cette méthode, vous décidez d'utiliser les blocs ci-dessous.
     Tentez d'enseigner la recherche binaire au petit Robin!
 
     PS: Vous n'êtes pas obligé d'utiliser tous les blocs.
