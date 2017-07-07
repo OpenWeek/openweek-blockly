@@ -35,103 +35,13 @@ problems:
         type: blockly
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
-              <block type="procedures_defnoreturn">
+              <block type="procedures_defnoreturn" deletable="false" editable="false">
                 <mutation>
                   <arg name="a"></arg>
                   <arg name="b"></arg>
                 </mutation>
                 <field name="NAME">resoudre_equation_premier_degre</field>
                 <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
-                <statement name="STACK">
-                  <block type="controls_if">
-                    <mutation else="1"></mutation>
-                    <value name="IF0">
-                      <block type="logic_compare">
-                        <field name="OP">EQ</field>
-                        <value name="A">
-                          <block type="variables_get">
-                            <field name="VAR">a</field>
-                          </block>
-                        </value>
-                        <value name="B">
-                          <block type="math_number">
-                            <field name="NUM">0</field>
-                          </block>
-                        </value>
-                      </block>
-                    </value>
-                    <statement name="DO0">
-                      <block type="controls_if">
-                        <mutation else="1"></mutation>
-                        <value name="IF0">
-                          <block type="logic_compare">
-                            <field name="OP">EQ</field>
-                            <value name="A">
-                              <block type="variables_get">
-                                <field name="VAR">b</field>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <block type="math_number">
-                                <field name="NUM">0</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                        <statement name="DO0">
-                          <block type="variables_set">
-                            <field name="VAR">solution</field>
-                            <value name="VALUE">
-                              <block type="reels"></block>
-                            </value>
-                          </block>
-                        </statement>
-                        <statement name="ELSE">
-                          <block type="variables_set">
-                            <field name="VAR">solution</field>
-                            <value name="VALUE">
-                              <block type="ensemble_vide"></block>
-                            </value>
-                          </block>
-                        </statement>
-                      </block>
-                    </statement>
-                    <statement name="ELSE">
-                      <block type="variables_set">
-                        <field name="VAR">solution</field>
-                        <value name="VALUE">
-                          <block type="math_arithmetic">
-                            <field name="OP">DIVIDE</field>
-                            <value name="A">
-                              <shadow type="math_number">
-                                <field name="NUM">1</field>
-                              </shadow>
-                              <block type="math_single">
-                                <field name="OP">NEG</field>
-                                <value name="NUM">
-                                  <shadow type="math_number">
-                                    <field name="NUM">9</field>
-                                  </shadow>
-                                  <block type="variables_get">
-                                    <field name="VAR">b</field>
-                                  </block>
-                                </value>
-                              </block>
-                            </value>
-                            <value name="B">
-                              <shadow type="math_number">
-                                <field name="NUM">1</field>
-                              </shadow>
-                              <block type="variables_get">
-                                <field name="VAR">a</field>
-                              </block>
-                            </value>
-                          </block>
-                        </value>
-                      </block>
-                    </statement>
-                  </block>
-                </statement>
               </block>
             </xml>
         header: |-
@@ -140,7 +50,50 @@ problems:
             - Pensez à gérer **TOUS** les cas : *a* et *b* peuvent prendre n'importe quelle valeur réelle.
             - ``solution`` contiendra la solution de l'équation.
             - Tous les blocs doivent normalement être utilisés.
-        toolbox: <xml></xml>
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="controls_if">
+                <mutation else="1"></mutation>
+              </block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR">solution</field>
+              </block>
+              <block type="math_single">
+                <field name="OP">NEG</field>
+                <value name="NUM">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="ensemble_vide"></block>
+              <block type="math_arithmetic">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">a</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">b</field>
+              </block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="reels"></block>
+            </xml>
 stored_submissions: 0
 submission_limit:
     amount: -1
