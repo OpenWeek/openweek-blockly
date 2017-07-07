@@ -79,7 +79,7 @@ problems:
                   <arg name="seconde"></arg>
                 </mutation>
                 <field name="NAME">Convertisseur</field>
-                <comment pinned="false" h="80" w="160">Retourne ne nombre total de secondes</comment>
+                <comment pinned="false" h="80" w="160">Retourne le nombre total de secondes</comment>
                 <value name="RETURN">
                   <block type="variables_get" deletable="false" movable="false" editable="false">
                     <field name="VAR">TotalSeconde</field>
