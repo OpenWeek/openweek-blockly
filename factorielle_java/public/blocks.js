@@ -180,6 +180,7 @@ Blockly.Blocks['inc'] = {
   }
 };
 
+
 Blockly.Blocks['initi'] = {
   init: function() {
     this.appendValueInput("NAME")
@@ -196,6 +197,22 @@ Blockly.Blocks['initi'] = {
   }
 };
 
+Blockly.Blocks['test'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("fact (");
+    this.appendValueInput("param")
+	.setCheck(null);
+    this.appendDummyInput()
+	.appendField(")");
+    this.setInputsInline(true);
+    this.setColour(225);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+
 Blockly.Python['fonction'] = function(block) {
   var statements_name = Blockly.Python.statementToCode(block, 'NAME');
   var value_retour = Blockly.Python.valueToCode(block, 'retour', Blockly.Python.ORDER_NONE);
@@ -210,7 +227,7 @@ Blockly.JavaScript['fonction'] = function(block) {
   var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
   var value_retour = Blockly.JavaScript.valueToCode(block, 'retour', Blockly.JavaScript.ORDER_NONE);
   // TODO: Assemble Python into code variable.
-  var code = 'function fact(int a) { \n'+ statements_name + ' return '+ value_retour + '; \n }';
+  var code = 'function fact(a) { \n'+ statements_name + ' return '+ value_retour + '; \n }';
   return code;
 };
 
@@ -303,7 +320,7 @@ Blockly.JavaScript['for'] = function(block) {
   var value_cond = Blockly.JavaScript.valueToCode(block, 'cond', Blockly.JavaScript.ORDER_NONE);
   var statement = Blockly.JavaScript.valueToCode(block, 'name', Blockly.JavaScript.ORDER_NONE);
   // TODO: Assemble Python into code variable.
-  var code = 'for(int i ='+ value_compare + ';i<='+ value_cond +';i++) {\n '+ statement +'} \n';
+  var code = 'for(var i ='+ value_compare + ';i<='+ value_cond +';i++) {\n '+ statement +'} \n';
   return code;
 };
 
@@ -378,9 +395,30 @@ Blockly.Python['inc'] = function(block) {
   return [code, Blockly.Python.ORDER_NONE];
 };
 
+Blockly.JavaScript['inc'] = function(block) {
+  // TODO: Assemble Python into code variable.
+  var code = 'i';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
 Blockly.Python['initi'] = function(block) {
   var value_name = Blockly.Python.valueToCode(block, 'NAME', Blockly.Python.ORDER_NONE);
   // TODO: Assemble Python into code variable.
   var code = 'int resultat =' + value_name + ';\n';
+  return code;
+};
+
+Blockly.JavaScript['initi'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_NONE);
+  // TODO: Assemble Python into code variable.
+  var code = 'var resultat =' + value_name + ';\n';
+  return code;
+};
+
+Blockly.JavaScript['test'] = function(block) {
+  var value_name = Blockly.JavaScript.valueToCode(block, 'param', Blockly.JavaScript.ORDER_ATOMIC);
+  // TODO: Assemble JavaScript into code variable.
+  var code = 'alert(fact('+ value_name +'));\n';
   return code;
 };

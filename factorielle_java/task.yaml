@@ -40,13 +40,19 @@ problems:
               <block type="equal"></block>
               <block type="ziro"></block>
               <block type="for"></block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
               <block type="return"></block>
+              <block type="test"></block>
             </xml>
         name: ''
         header: |-
-            Ecrivez le corps de la fonction fact qui calcul la factoriel d'un paramètre
+            Ecrivez le corps de la fonction ``fact`` qui calcul la factoriel d'un paramètre
 
             si le nombre passé en argument est négatif votre fonction doit retourner -1
+
+            Un bloc pour tester votre fonction, vous est fourni. Pour tester votre code mettez ce bloc en dessous de votre fonction et cliquez sur run code en haut à gauche.
         blocks_files:
         - blocks.js
         workspace: <xml></xml>
