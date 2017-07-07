@@ -1,0 +1,101 @@
+accessible: true
+author: Olivier Martin
+context: |
+    - Agencez les blocs pour compléter la fonction ``MaximumListe``
+    - Cette fonction doit retourner le plus grand élément de la liste ``Liste``
+    - ``Liste`` contient des entiers positifs et négatifs
+    - Tous les blocs ne sont pas nécessaires
+environment: default
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Maximum d'une liste
+network_grading: false
+problems:
+    max-list:
+        name: Maximum liste
+        options:
+            maxBlocks: Infinity
+            scrollbars: true
+            toolboxPosition: start
+            trashcan: true
+            css: true
+            media: /static/common/js/blockly/media/
+            oneBasedIndex: true
+            sounds: true
+        header: ''
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="lists_getIndex">
+                <mutation statement="false" at="false"></mutation>
+                <field name="MODE">GET</field>
+                <field name="WHERE">FIRST</field>
+                <value name="VALUE">
+                  <block type="variables_get">
+                    <field name="VAR">Liste</field>
+                  </block>
+                </value>
+              </block>
+              <block type="variables_set">
+                <field name="VAR">Maximum</field>
+              </block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">i</field>
+              </block>
+              <block type="controls_forEach">
+                <field name="VAR">i</field>
+                <value name="LIST">
+                  <block type="variables_get">
+                    <field name="VAR">Liste</field>
+                  </block>
+                </value>
+              </block>
+              <block type="controls_if">
+                <value name="IF0">
+                  <block type="logic_compare">
+                    <field name="OP">GT</field>
+                    <value name="A">
+                      <block type="variables_get">
+                        <field name="VAR">i</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="variables_get">
+                        <field name="VAR">Maximum</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+              <block type="variables_set">
+                <field name="VAR">Maximum</field>
+              </block>
+            </xml>
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="procedures_defreturn" deletable="false" movable="false" editable="false">
+                <mutation>
+                  <arg name="Liste"></arg>
+                </mutation>
+                <field name="NAME">MaximumListe</field>
+                <comment pinned="false" h="80" w="160">Retourne le plus grand élément de la liste 'Liste'.</comment>
+                <value name="RETURN">
+                  <block type="variables_get" deletable="false" movable="false" editable="false">
+                    <field name="VAR">Maximum</field>
+                  </block>
+                </value>
+              </block>
+            </xml>
+        language: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
