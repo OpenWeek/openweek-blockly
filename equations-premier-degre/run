@@ -1,5 +1,4 @@
 #!/bin/python3
-# -*- coding: utf-8 -*-
 #
 # Copyright (c) 2017 Robin Descamps
 # This program is free software: you can redistribute it and/or modify
@@ -22,9 +21,9 @@ from inginious import input
 
 
 if __name__ == "__main__":
-    input.parse_template("equations-second-degre.py")
+    input.parse_template("equations-premier-degre.py")
 
-    p = subprocess.Popen(shlex.split("python3 equations-second-degre.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    p = subprocess.Popen(shlex.split("python3 equations-premier-degre.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
     make_output = p.communicate()[0].decode('utf-8')
 
     if p.returncode:

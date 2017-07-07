@@ -13,11 +13,24 @@ name: PGCD de deux nombres
 network_grading: false
 problems:
     PGCD:
-        header: |-
-            Complétez la fonction ``pgcd``, qui prend deux arguments entiers positifs : ``nombre_1`` et ``nombre_2``. Votre fonction doit calculer le Plus Grand Commun Diviseur (PGCD) de ces deux nombres.
-
-            - Les blocs déjà placés ne doivent normalement pas être déplacés ou supprimés, mais ils peuvent être édités (une égalité peut être changé en inégalité, ...).
-            - Tous les blocs proposés doivent normalement être utilisés.
+        options:
+            zoom:
+                startScale: 1.0
+                minScale: 0.3
+                maxScale: 3.0
+                scaleSpeed: 1.2
+                controls: true
+                wheel: false
+            toolboxPosition: start
+            css: true
+            scrollbars: true
+            sounds: true
+            media: /static/common/js/blockly/media/
+            trashcan: true
+            maxBlocks: Infinity
+            oneBasedIndex: true
+        name: La fonction pgcd(nombre_1, nombre_2)
+        type: blockly
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="procedures_defreturn" deletable="false">
@@ -89,25 +102,6 @@ problems:
                 </value>
               </block>
             </xml>
-        options:
-            zoom:
-                scaleSpeed: 1.2
-                maxScale: 3.0
-                minScale: 0.3
-                controls: true
-                startScale: 1.0
-                wheel: false
-            toolboxPosition: start
-            media: /static/common/js/blockly/media/
-            oneBasedIndex: true
-            trashcan: true
-            scrollbars: true
-            css: true
-            sounds: true
-            maxBlocks: Infinity
-        type: blockly
-        language: python
-        name: La fonction pgcd(nombre_1, nombre_2)
         toolbox: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="math_number">
@@ -142,6 +136,12 @@ problems:
                 </value>
               </block>
             </xml>
+        language: python
+        header: |-
+            Complétez la fonction ``pgcd``, qui prend deux arguments entiers positifs : ``nombre_1`` et ``nombre_2``. Votre fonction doit calculer le Plus Grand Commun Diviseur (PGCD) de ces deux nombres.
+
+            - Les blocs déjà placés ne doivent normalement pas être déplacés ou supprimés, mais ils peuvent être édités (une égalité peut être changé en inégalité, ...).
+            - Tous les blocs proposés doivent normalement être utilisés.
 stored_submissions: 0
 submission_limit:
     amount: -1

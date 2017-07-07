@@ -5,30 +5,29 @@ environment: java8scala
 evaluate: best
 groups: false
 limits:
-    output: '2'
-    time: '30'
     memory: '100'
-name: Équation du second degré
+    time: '10'
+    output: '2'
+name: Résolution d'équations du second degré
 network_grading: false
 problems:
     equations-second-degre:
         options:
-            media: /static/common/js/blockly/media/
             zoom:
                 startScale: 1.0
-                scaleSpeed: 1.2
-                controls: true
-                maxScale: 3.0
                 minScale: 0.3
+                scaleSpeed: 1.2
+                maxScale: 3.0
+                controls: true
                 wheel: false
-            toolboxPosition: start
-            maxBlocks: Infinity
             oneBasedIndex: true
-            trashcan: true
-            sounds: true
-            scrollbars: true
+            toolboxPosition: start
             css: true
-        type: blockly
+            media: /static/common/js/blockly/media/
+            scrollbars: true
+            sounds: true
+            maxBlocks: Infinity
+            trashcan: true
         workspace: |-
             <xml xmlns="http://www.w3.org/1999/xhtml">
               <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
@@ -102,8 +101,6 @@ problems:
               <block type="delta0"></block>
               <block type="reels"></block>
             </xml>
-        blocks_files:
-        - blocks.js
         language: python
         header: |-
             La fonction ``resoudre_equation_second_degre`` doit pouvoir résoudre toute équation de type **ax² + bx + c = 0** (*a, b, c* ∈ ℝ). Les paramètres ``a``, ``b`` et ``c`` de la fonction correspondent aux coefficents de l'équation.
@@ -113,7 +110,10 @@ problems:
             - Certaines formules vous sont données pour plus de facilité.
             - ``delta`` et Δ représentent la même variable.
             - Tous les blocs doivent normalement être utilisés.
+        blocks_files:
+        - blocks.js
         name: Résolution d'équation du second degré
+        type: blockly
 stored_submissions: 0
 submission_limit:
     amount: -1
