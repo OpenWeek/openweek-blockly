@@ -1,0 +1,61 @@
+accessible: true
+author: ''
+context: |-
+    Cette situation se déroule dans un monde parallèle à celui de l'exercice précédent, où les gens s'expriment en code Java. Vous devez donc expliquer au jeune Robin comment chercher dans un dictionnaire à l'aide des blocs de code Java ci-dessous.
+
+
+    Comme il s'agit d'un monde parallèle, il est important que les issues de situations parallèles soient les mêmes, afin de préserver le parallélisme des deux mondes et ne pas créer de réalités alternatives.
+
+    Évitez à tout prix cela en enseignant la recherche binaire en Java au petit Robin!
+environment: java8scala
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    memory: '100'
+    output: '2'
+name: 'La recherche binaire (2): Professeur improvisé en Java'
+network_grading: false
+problems:
+    thecode:
+        name: Recherche binaire en Java
+        options:
+            oneBasedIndex: true
+            css: true
+            media: /static/common/js/blockly/media/
+            maxBlocks: Infinity
+            toolboxPosition: start
+            scrollbars: true
+            trashcan: true
+            sounds: true
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="casvide"></block>
+              <block type="false"></block>
+              <block type="rec2"></block>
+              <block type="rec1"></block>
+              <block type="apres"></block>
+              <block type="milieu"></block>
+              <block type="true"></block>
+              <block type="else"></block>
+              <block type="avant"></block>
+              <block type="mot"></block>
+              <block type="egal"></block>
+              <block type="vide"></block>
+              <block type="dico"></block>
+              <block type="signature"></block>
+            </xml>
+        language: ''
+        header: ''
+        blocks_files:
+        - blocks.js
+        type: blockly
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="signature" deletable="false" movable="false" editable="false"></block>
+            </xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
