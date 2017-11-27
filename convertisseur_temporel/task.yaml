@@ -1,0 +1,94 @@
+accessible: true
+author: Olivier Martin
+context: |
+    - Brandon a inventé une machine à remonter le temps. Cependant sa machine ne fonctionne qu'en secondes... Afin de pouvoir utiliser facilement sa machine, il faudrait disposer d'un convertisseur temporel qui transforme des heures de la forme ``hh:mm:ss`` en secondes.
+    - Agencez les blocs afin de retourner le nombre total de secondes sur base des variables ``heure``, ``minute`` et ``seconde``.
+environment: default
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Convertisseur temporel
+network_grading: false
+problems:
+    id:
+        options:
+            media: /static/common/js/blockly/media/
+            oneBasedIndex: true
+            trashcan: true
+            toolboxPosition: start
+            maxBlocks: Infinity
+            scrollbars: true
+            css: true
+            sounds: true
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="variables_set">
+                <field name="VAR">TotalSeconde</field>
+              </block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="math_change">
+                <field name="VAR">TotalSeconde</field>
+                <value name="DELTA">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="math_arithmetic">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">minute</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">TotalSeconde</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">seconde</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">heure</field>
+              </block>
+            </xml>
+        name: Convertisseur temporel
+        blocks_files: []
+        type: blockly
+        header: ''
+        language: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="procedures_defreturn" deletable="false" movable="false" editable="false">
+                <mutation>
+                  <arg name="heure"></arg>
+                  <arg name="minute"></arg>
+                  <arg name="seconde"></arg>
+                </mutation>
+                <field name="NAME">Convertisseur</field>
+                <comment pinned="false" h="80" w="160">Retourne le nombre total de secondes</comment>
+                <value name="RETURN">
+                  <block type="variables_get" deletable="false" movable="false" editable="false">
+                    <field name="VAR">TotalSeconde</field>
+                  </block>
+                </value>
+              </block>
+            </xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

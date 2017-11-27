@@ -1,0 +1,144 @@
+accessible: true
+author: Olivier Martin
+context: |-
+    - Assemblez les blocs afin de **reproduire parfaitement la figure géométrique** présente ci-dessous.
+    - Les cases à reproduire disposent chacune de coordonnées afin de vous aider.
+    - Le bloc ``placer une case à la position i j`` équivaut à placer une case à la coordonnée (i, j).
+    - Remarques:
+        - Vous pouvez placer plusieurs cases sur le même emplacement.
+        - Si vous placez des cases à des coordonnées très éloignées *par exemple en (10, 10)*, celles-ci ne seront pas visibles.
+        - Tous les blocs *Blockly* ne sont pas nécessaires.
+        - Utilisez des boucles et des conditions afin de résoudre cet exercice.
+environment: default
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Reproduction de figures
+network_grading: false
+problems:
+    id:
+        options:
+            media: /static/common/js/blockly/media/
+            oneBasedIndex: true
+            trashcan: true
+            toolboxPosition: start
+            visual:
+                position: left
+            maxBlocks: '47'
+            scrollbars: true
+            sounds: true
+            css: true
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="controls_if">
+                <mutation elseif="1"></mutation>
+              </block>
+              <block type="controls_if"></block>
+              <block type="controls_for">
+                <field name="VAR">i</field>
+                <value name="FROM">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+                <value name="BY">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="controls_for">
+                <field name="VAR">j</field>
+                <value name="FROM">
+                  <shadow type="math_number">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number">
+                    <field name="NUM">3</field>
+                  </shadow>
+                </value>
+                <value name="BY">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">j</field>
+              </block>
+              <block type="logic_operation">
+                <field name="OP">OR</field>
+              </block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">i</field>
+              </block>
+              <block type="place_orange">
+                <value name="x">
+                  <block type="variables_get">
+                    <field name="VAR">i</field>
+                  </block>
+                </value>
+                <value name="y">
+                  <block type="variables_get">
+                    <field name="VAR">j</field>
+                  </block>
+                </value>
+              </block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR">i</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+              <block type="logic_compare">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="variables_get">
+                    <field name="VAR">j</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number">
+                    <field name="NUM">0</field>
+                  </block>
+                </value>
+              </block>
+            </xml>
+        name: Reproduction de figure
+        language: ''
+        type: blockly
+        blocks_files:
+        - blocks.js
+        header: ''
+        workspace: <xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+        files:
+        - Problem.js
+        - interpreter.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

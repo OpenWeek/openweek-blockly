@@ -1,0 +1,84 @@
+accessible: true
+author: Olivier Martin
+context: |
+    - Assemblez les blocs afin que l'imprimante imprime ``1 22 333 4444 55555 666666``
+    - Tous les blocs ne sont pas nécessaires
+environment: default
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Vive les boucles !
+network_grading: false
+problems:
+    id:
+        type: blockly
+        options:
+            trashcan: true
+            sounds: true
+            maxBlocks: Infinity
+            oneBasedIndex: true
+            media: /static/common/js/blockly/media/
+            scrollbars: true
+            css: true
+            toolboxPosition: start
+        workspace: <xml xmlns="http://www.w3.org/1999/xhtml"></xml>
+        name: Imprimante
+        blocks_files:
+        - blocks.js
+        header: ''
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="id1"></block>
+              <block type="id2"></block>
+              <block type="variables_get">
+                <field name="VAR">i</field>
+              </block>
+              <block type="controls_for">
+                <field name="VAR">i</field>
+                <value name="FROM">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number">
+                    <field name="NUM">4</field>
+                  </shadow>
+                </value>
+                <value name="BY">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">j</field>
+              </block>
+              <block type="controls_for">
+                <field name="VAR">j</field>
+                <value name="FROM">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number">
+                    <field name="NUM">4</field>
+                  </shadow>
+                </value>
+                <value name="BY">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+            </xml>
+        language: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
