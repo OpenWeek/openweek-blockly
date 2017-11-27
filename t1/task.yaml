@@ -1,0 +1,63 @@
+accessible: true
+author: ''
+context: ''
+environment: default
+evaluate: best
+groups: false
+limits:
+    memory: '100'
+    time: '30'
+    output: '2'
+name: trouver le minimum d'une liste
+network_grading: false
+problems:
+    q1:
+        name: trouver le minimum d'une liste
+        options:
+            maxBlocks: Infinity
+            oneBasedIndex: true
+            trashcan: true
+            media: /static/common/js/blockly/media/
+            scrollbars: true
+            css: true
+            toolboxPosition: start
+            sounds: true
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks"
+            style="display:none"></xml>
+        language: python
+        header: |
+            Vous devez créer une fonction ``minimum`` qui retourne l'élément le plus petit d'une liste passée en paramètre.
+
+            Pour rappel une liste est une suite de nombre. Par exemple:
+            [1, 2, 3] où [4,5,8,2].
+
+            Pour ces deux exemples, votre programme doit retourner 1 et 2
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="tant_que"></block>
+              <block type="controls_if"></block>
+              <block type="variables_get">
+                <field name="VAR">minim</field>
+              </block>
+              <block type="actual_liste"></block>
+              <block type="init_minimum"></block>
+              <block type="le_minimum"></block>
+              <block type="liste"></block>
+              <block type="compare_to"></block>
+              <block type="procedures_defreturn">
+                <mutation>
+                  <arg name="liste"></arg>
+                </mutation>
+                <field name="NAME">minimum</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+            </xml>
+        blocks_files:
+        - blocks.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
