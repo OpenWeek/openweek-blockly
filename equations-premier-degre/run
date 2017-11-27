@@ -1,0 +1,43 @@
+#!/bin/python3
+#
+# Copyright (c) 2017 Robin Descamps
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU Affero General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#
+import os
+import subprocess
+import shlex
+from inginious import feedback
+from inginious import input
+
+
+if __name__ == "__main__":
+    input.parse_template("equations-premier-degre.py")
+
+    p = subprocess.Popen(shlex.split("python3 equations-premier-degre.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    make_output = p.communicate()[0].decode('utf-8')
+
+    if p.returncode:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("La compilation de votre code a échoué. Voici l'erreur:" + make_output)
+        exit(0)
+    else:
+        grade = int(make_output[:3])
+        if grade == 100:
+            feedback.set_grade(grade)
+            feedback.set_global_result("success")
+            feedback.set_global_feedback("Vous avez résolu l'exercice.\n\n" + make_output[3:])
+        else:
+            grade = int(make_output[:2])
+            feedback.set_grade(grade)
+            feedback.set_global_result("failed")
+            feedback.set_global_feedback("Votre fonction échoue à résoudre tout type d'équation du second degré :\n\n" + make_output[3:])
