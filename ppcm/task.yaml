@@ -1,0 +1,94 @@
+accessible: true
+author: ''
+context: Trouve le PPCM entre ces deux nombres.
+environment: default
+evaluate: best
+groups: false
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Trouver PPCM
+network_grading: false
+problems:
+    ppcm-id:
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks" style="display: none;">
+              <block type="procedures_defreturn" editable="false">
+                <mutation>
+                  <arg name="n1"></arg>
+                  <arg name="n2"></arg>
+                </mutation>
+                <field name="NAME">calculer PPCM</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+                <value name="RETURN">
+                  <block type="variables_get">
+                    <field name="VAR">res</field>
+                  </block>
+                </value>
+              </block>
+            </xml>
+        name: Comment trouver un PPCM entre deux nombres ?
+        options:
+            scrollbars: true
+            oneBasedIndex: true
+            trashcan: true
+            toolboxPosition: start
+            sounds: true
+            css: true
+            maxBlocks: Infinity
+            media: /static/common/js/blockly/media/
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml" id="workspaceBlocks" style="display: none;"><category name="ppcm" colour="210">
+              <block type="est_pgcd_par"></block>
+              <block type="variables_get">
+                <field name="VAR">n1</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">n2</field>
+              </block>
+              <block type="math_arithmetic">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="math_arithmetic">
+                <field name="OP">ADD</field>
+                <value name="A">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="B">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="variables_set">
+                <field name="VAR">res</field>
+              </block>
+            </category></xml>
+        language: python
+        type: blockly
+        header: |-
+            Afin de vous simplifiez le travail, nous avons déjà créé une formule qui calcule le PGCD entre deux nombres entiers.
+            Le PPCM peut donc facilement être trouvé via la formule suivante :
+            PPCM(a,b) = (a*b)/PGCD(a,b)
+
+            Il vous est donc demandé dans cet exercice d'implémenter cette formule.
+        blocks_files:
+        - blocks.js
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0
