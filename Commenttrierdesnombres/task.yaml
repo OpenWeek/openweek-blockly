@@ -1,0 +1,91 @@
+accessible: true
+author: Naitali Brandon
+context: |
+    Un casino cherche des jobistes pour trier des paquets de cartes en ordre croissant aux différentes tables de jeu. Grand fan de tri à vos heures perdues et ne reculant devant aucun challenge, vous avez une idée de procédure à suivre:
+
+    - 1.Vous prenez d'abord la première carte x dans le paquet;
+    - 2.Vous cherchez ensuite la plus petite carte y dans le reste du paquet;
+    - 3.Vous choisissez la plus petite carte entre la carte x et la carte y et vous la placez sur le sommet du paquet;
+    - 4.Vous évitez les cartes déjà prises et vous recommencez la procédure à l'étape 1 avec le reste du paquet.
+
+    Arrivé à l'entretien pour ce travail, le patron du casino vous demande de lui expliquer comment vous comptez vous y prendre via différents blocs. Tentez de lui expliquer votre procédure! (aussi appelée ``tri par sélection``)
+
+    Informations utiles:
+
+
+    - Les blocs ``x`` et ``y`` représentent chacun une carte;
+    - ``paquet`` représente le paquet de cartes;
+    - Tous les blocs doivent être utilisés au moins une fois;
+
+
+    Fonctionnement de Blockly:
+
+    - À gauche se trouve vos blocs disponibles, votre boîte à outils;
+    - À droite se trouve ce que vous comptez montrer au patron;
+    - Glissez les blocs de gauche à droite pour construire votre méthode;
+    - Il ne peut pas y avoir de bloc sans point d'accroche;
+    - Attention, les blocs doivent s'emboîter!
+
+    Voici un exemple avec un tas de 10 cartes*:
+
+          .. image:: Commenttrierdesnombres/selection_sort_animation.gif
+               :height: 180px
+
+    (* tiré de https://fr.wikipedia.org/wiki/Tri_par_s%C3%A9lection)
+environment: java8scala
+evaluate: best
+groups: false
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: 'Le tri par selection: Entretien stressant'
+network_grading: false
+problems:
+    thecode:
+        options:
+            sounds: true
+            trashcan: true
+            oneBasedIndex: true
+            css: true
+            media: /static/common/js/blockly/media/
+            maxBlocks: Infinity
+            toolboxPosition: start
+            scrollbars: true
+        name: Tri par selection
+        type: blockly
+        header: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="procedures_defnoreturn" deletable="false" movable="false" editable="false">
+                <mutation>
+                  <arg name="paquet"></arg>
+                </mutation>
+                <field name="NAME">trier par selection</field>
+                <comment pinned="false" h="32" w="190">Recette de tri par selection d'un paquet de carte</comment>
+              </block>
+            </xml>
+        language: ''
+        blocks_files:
+        - blocks.js
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <block type="foreach"></block>
+              <block type="swap"></block>
+              <block type="condition"></block>
+              <block type="foreach2"></block>
+              <block type="variables_get">
+                <field name="VAR">paquet</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">x</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR">y</field>
+              </block>
+            </xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+weight: 1.0

@@ -1,0 +1,30 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+# Auteur(s) : Florian Thuin
+# This file is part of INGInious
+import os
+import subprocess
+import shlex
+from inginious import feedback
+from inginious import input
+
+
+if __name__ == "__main__":
+    os.chdir("student")
+    input.parse_template("recherchebinaire.py")
+
+    p = subprocess.Popen(shlex.split("python3 recherchebinaire.py"), stderr=subprocess.STDOUT, stdout=subprocess.PIPE)
+    make_output = p.communicate()[0].decode('utf-8')
+    
+    
+    if p.returncode:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("Vous vous rendez compte qu'il vous manque certains blocs primordiaux!")
+        exit(0)
+    if make_output == "True":
+        feedback.set_global_result("success")
+        feedback.set_global_feedback("Bravo! Le petit Robin peut enfin utiliser un dictionnaire et vous récompense d'un regard plein de gratitude!")
+    else:
+        feedback.set_global_result("failed")
+        feedback.set_global_feedback("Attention: " + make_output)
