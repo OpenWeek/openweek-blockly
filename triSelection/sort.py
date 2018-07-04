@@ -23,7 +23,7 @@ import copy
 if __name__ == "__main__":
 	random.seed(55)
 	tab = list()
-	for j in range(6): #lists of 6 elements
+	for j in range(10): #lists of 6 elements
 		tab.append(random.randint(-10,10))
 	old = copy.deepcopy(tab)
 	trier(tab)
