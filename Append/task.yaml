@@ -1,0 +1,94 @@
+accessible: true
+author: Sophie Schorochoff, Guillaume Bellon
+context: |-
+    - La fonction Append est une des fonctions les plus utilisées dans la gestion de listes. Elle permet de concaténer deux listes. Il vous est demandé de créer une nouvelle liste contenant la fusion des deux listes entrées en argument ``Liste1`` et ``Liste2`` :
+    - ``Liste1`` et ``Liste2`` ne sont pas vides
+    - Les listes ne peuvent pas être modifiées
+environment: mcq
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '30'
+name: Fusionner des listes
+network_grading: false
+order: 4
+problems:
+    Append:
+        options:
+            toolboxPosition: start
+            oneBasedIndex: true
+            grid:
+                snap: true
+                spacing: 20
+                length: 3
+                colour: '#ccc'
+            media: plugins/blockly/static/blockly/media/
+            zoom:
+                startScale: 1.0
+                scaleSpeed: 1.2
+                minScale: 0.3
+                controls: true
+                maxScale: 3.0
+                wheel: false
+            css: true
+            maxBlocks: Infinity
+            scrollbars: true
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables>
+                <variable type="">NouvelleListe</variable>
+                <variable type="">Liste2</variable>
+                <variable type="">Liste1</variable>
+                <variable type="">i</variable>
+              </variables>
+              <block type="variables_set_dynamic">
+                <field name="VAR" variabletype="">NouvelleListe</field>
+              </block>
+              <block type="controls_forEach">
+                <field name="VAR" variabletype="">i</field>
+              </block>
+              <block type="lists_setIndex">
+                <mutation at="false"></mutation>
+                <field name="MODE">INSERT</field>
+                <field name="WHERE">LAST</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">NouvelleListe</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">Liste1</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">Liste2</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">i</field>
+              </block>
+            </xml>
+        name: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables>
+                <variable type="">Liste1</variable>
+                <variable type="">Liste2</variable>
+              </variables>
+              <block type="procedures_defreturn">
+                <mutation>
+                  <arg name="Liste1" varid=".XG-k0}rdeb5._jI,;B"></arg>
+                  <arg name="Liste2" varid="[ZX_3Jek4JgNa-GV1.I}"></arg>
+                </mutation>
+                <field name="NAME">fusionner deux listes</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+            </xml>
+        header: ''
+        type: blockly
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
