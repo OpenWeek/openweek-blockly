@@ -1,0 +1,71 @@
+accessible: true
+author: Ilias Boutchichi
+context: 'TODO: contexte'
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    memory: '100'
+    output: '2'
+    time: '10'
+name: 1. Tri par insertion
+network_grading: false
+problems:
+    algo:
+        options:
+            visual:
+                position: left
+            zoom:
+                scaleSpeed: 1.2
+                startScale: 1.0
+                maxScale: 3.0
+                minScale: 0.3
+                controls: true
+                wheel: false
+            css: true
+            scrollbars: true
+            media: plugins/blockly/static/blockly/media/
+            toolboxPosition: start
+            maxBlocks: '8'
+            grid:
+                length: 3
+                snap: true
+                colour: '#ccc'
+                spacing: 20
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            <category name="Assignements" colour="330">
+              <variables></variables>
+              <block type="assign_tmp"></block>
+              <block type="assign_index_j"></block>
+              <block type="decrease_j"></block>
+            </category><category name="Boucles" colour="120">
+              <variables></variables>
+              <block type="for_each_greater"></block>
+              <block type="for_each_list"></block>
+            </category><category name="Liste" colour="210">
+              <variables></variables>
+              <block type="assign_greater_elem"></block>
+              <block type="put_x"></block>
+            </category></xml>
+        files:
+        - svg_min.js
+        - insertion_sort.js
+        blocks_files:
+        - customblocks.js
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="new_list" deletable="false" editable="false"></block>
+            </xml>
+        type: blockly
+        name: ''
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
