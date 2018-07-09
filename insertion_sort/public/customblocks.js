@@ -176,3 +176,50 @@ Blockly.Python['put_x'] = function(block) {
   var code = 'A[j+1] = tmp\n';
   return code;
 };
+
+/********************************************************************************
+ **                         JavaScript Generator                               **
+ ********************************************************************************/
+
+Blockly.JavaScript['new_list'] = function(block) {
+  var code = 'A = [' + Lst.liste + '];\nvar n = A.length;\n';
+  return code;
+};
+
+Blockly.JavaScript['for_each_list'] = function(block) {
+  var statements_content = Blockly.JavaScript.statementToCode(block, 'CONTENT');
+  var code = 'for(var i=1; i<n; i++) {\n' + statements_content + '}\n';
+  return code;
+};
+
+Blockly.JavaScript['assign_tmp'] = function(block) {
+  var code = 'shift_tmp(i);\nvar tmp = A[i];\nvar dy = 0;\n';
+  return code;
+};
+
+Blockly.JavaScript['assign_index_j'] = function(block) {
+  var code = 'var j = i-1;\n';
+  return code;
+};
+
+Blockly.JavaScript['for_each_greater'] = function(block) {
+  var statements_content = Blockly.JavaScript.statementToCode(block, 'CONTENT');
+  var code = 'while (j>=0 && A[j] > tmp) {\n'
+  + statements_content + '}\n';
+  return code;
+};
+
+Blockly.JavaScript['decrease_j'] = function(block) {
+  var code = 'j--;\n';
+  return code;
+};
+
+Blockly.JavaScript['assign_greater_elem'] = function(block) {
+  var code = 'shift(j);\ndy += 70;\nA[j+1] = A[j];\n';
+  return code;
+};
+
+Blockly.JavaScript['put_x'] = function(block) {
+  var code = 'put(dy, j+1);\nA[j+1] = tmp;\n';
+  return code;
+};
