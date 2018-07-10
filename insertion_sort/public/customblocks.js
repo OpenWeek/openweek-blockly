@@ -136,7 +136,7 @@ Blockly.Blocks['put_x'] = {
  ********************************************************************************/
 
 Blockly.Python['new_list'] = function(block) {
-  var code = 'A = [' + Lst.liste + ']\n';
+  var code = 'global A, B\nA = [' + Lst.liste + ']\nB = list(A)\n';
   return code;
 };
 

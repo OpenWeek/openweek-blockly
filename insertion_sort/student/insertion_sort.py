@@ -15,18 +15,19 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-import os, subprocess, shlex
-from contextlib import redirect_stdout
-from random import randint
-
 A = []
-def studentcode():
-    global A
+B = []
+
+def student_code():
     @@algo@@
 
 if __name__ == "__main__":
-    correct_list = sorted(A)
+    try:
+        student_code()
+    except:
+        print("Unexpected error:", sys.exc_info()[0])
+    correct_list = sorted(B)
     if correct_list == A:
         print('True', end='', flush=True)
     else:
-        print('failed')
+        print('Vous obtenez la liste suivante: ' + str(A) + ' au lieu de: ' + str(correct_list))

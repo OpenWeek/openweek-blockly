@@ -24,11 +24,15 @@ var TEXT = 0, RECT = 1, INDEX = 2, VALUE = 3, RECT_HEIGHT = 70;
 var Insertion = {};
 
 Insertion.animations = [];
+Insertion.initList = [];
 Insertion.case = [];
 Insertion.animid = 0;
 Insertion.tmp = null;
 window.stepSpeed = 500;
 
+/**
+ * Interpreter for custom functions in blocks generators
+ */
 var initInterpreterApi = function(interpreter, scope) {
   interpreter.setProperty(scope, 'shift_tmp',
   interpreter.createNativeFunction(function(index) {
@@ -52,12 +56,20 @@ var initInterpreterApi = function(interpreter, scope) {
     Insertion.case[Number(index)] = Insertion.tmp;
     Insertion.case[Number(index)][INDEX] = Number(index);
   }));
+
+  Insertion.reset();
 };
 
+/**
+ * Function called after the evaluation of each block for animations
+ */
 var animate = function() {
     Insertion.animate();
 };
 
+/**
+ * Initialisation of Blockly, svg, and display of the random list
+ */
 Insertion.init = function() {
   if (typeof Blockly === "undefined" || typeof Blockly.getMainWorkspace() === "undefined"
   || Blockly.getMainWorkspace() === null) {
@@ -80,14 +92,18 @@ Insertion.init = function() {
                   .move(0,RECT_HEIGHT*index);
     Insertion.case.push([text,rect,index,item]);
   });
-  Insertion.reset();
+  Insertion.initList = Insertion.case.slice();
 };
 
+/**
+ * Reset function called when clicking on the 'restart' button
+ */
 Insertion.reset = function() {
   for(var x=0; x < Insertion.animations.length; x++){
     clearTimeout(Insertion.animations[x]);
   }
   Insertion.animations = [];
+  Insertion.case = Insertion.initList.slice();
 
   Insertion.case.forEach(function(item, index, array) {
     item[TEXT].stroke('black').move(0,index*RECT_HEIGHT);
@@ -95,12 +111,25 @@ Insertion.reset = function() {
   });
 };
 
+/**
+ * Function that changes the color of a rectangle
+ * @param {string} color the color value, either common value
+ *     or hexadecimal value
+ * @param {rectangle} rect the rectangle that needs to change color
+ */
 Insertion.changeColor = function(color, rect) {
   return function() {
     rect.animate(window.stepSpeed, '<>').stroke(color);
   };
 };
 
+/**
+ * Function that move a case (text + rectangle) by adding (x,y) to
+ * its coordinates
+ * @param {number} x value to add to the abscissa of the case 'elem'
+ * @param {number} y value to add to the ordinate of the case 'elem'
+ * @param {case} elem element representing the case that needs to move
+ */
 Insertion.dmove = function(x,y,elem) {
   return function() {
     elem[TEXT].animate(window.stepSpeed, '<>').dmove(x,y);
@@ -108,13 +137,21 @@ Insertion.dmove = function(x,y,elem) {
   };
 };
 
+/**
+ * My animation function
+ */
 Insertion.animate = function() {
   while(Insertion.animations.length) {
-    window.setTimeout(Insertion.animations.shift(), Insertion.animid++*window.stepSpeed);
+    window.setTimeout(Insertion.animations.shift(),
+    Insertion.animid++*window.stepSpeed);
   }
   Insertion.animid = 0;
 };
 
+/**
+ * Throws a warning if no visual interface is found on the web page,
+ * otherwise load the visuals
+ */
 if (document.getElementById('blocklySvgZone') != null) {
   window.addEventListener('load', Insertion.init);
 } else {

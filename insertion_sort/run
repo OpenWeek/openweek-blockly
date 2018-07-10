@@ -29,11 +29,11 @@ if __name__ == "__main__":
 
     if p.returncode:
         feedback.set_global_result("failed")
-        feedback.set_global_feedback("Veuillez vérifier que l'agencement de vos blocs soit correct.\n")
+        feedback.set_global_feedback("Quelque chose s'est mal passée. Veuillez vérifier que l'agencement de vos blocs est correct.")
         exit(0)
     if make_output == "True":
         feedback.set_global_result("success")
         feedback.set_global_feedback("Félicitations! La liste est bien triée.")
     else:
         feedback.set_global_result("failed")
-        feedback.set_global_feedback("Erreur: " + make_output)
+        feedback.set_global_feedback("Mauvaise réponse. " + make_output)
