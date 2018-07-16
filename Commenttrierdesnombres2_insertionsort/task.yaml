@@ -29,7 +29,7 @@ context: |
 
     Voici un exemple avec un tas de 8 cartes*:
 
-          .. image:: Commenttrierdesnombres2/insertion_sort_animation.gif
+          .. image:: Commenttrierdesnombres2_insertionsort/insertion_sort_animation.gif
                :height: 180px
 
     (* tiré de https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif)

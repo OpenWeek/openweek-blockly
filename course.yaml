@@ -3,6 +3,7 @@ name: Open Week 2018 - Blockly
 description: ''
 admins:
 - 'Ilias Boutchichi'
+- superadmin
 tutors: []
 groups_student_choice: false
 use_classrooms: true

@@ -28,7 +28,7 @@ context: |
 
     Voici un exemple avec un tas de 10 cartes*:
 
-          .. image:: Commenttrierdesnombres/selection_sort_animation.gif
+          .. image:: Commenttrierdesnombres1_selectionsort/selection_sort_animation.gif
                :height: 180px
 
     (* tiré de https://fr.wikipedia.org/wiki/Tri_par_s%C3%A9lection)

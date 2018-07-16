@@ -25,7 +25,7 @@ context: |
 
     Voici un exemple avec un tas de 10 cartes*:
 
-          .. image:: Commenttrierdesnombres3/Sorting_quicksort_anim.gif
+          .. image:: Commenttrierdesnombres3_quicksort/Sorting_quicksort_anim.gif
                :height: 180px
 
     (* tiré de https://commons.wikimedia.org/wiki/File:Sorting_quicksort_anim.gif?uselang=fr)
@@ -39,7 +39,6 @@ limits:
     memory: '100'
 name: 'Le tri rapide: Entretien stressant'
 network_grading: false
-order: 7
 problems:
     quick_sort:
         options:
