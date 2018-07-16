@@ -1,0 +1,196 @@
+accessible: true
+author: Sophie Schorochoff, Guillaume Bellon
+context: |
+    Un casino cherche des jobistes pour trier des paquets de cartes en ordre croissant aux différentes tables de jeu. Grand fan de tri à vos heures perdues et ne reculant devant aucun challenge, vous avez une idée de procédure à suivre:
+
+    - 1. TODO
+
+    Arrivé à l'entretien pour ce travail, le patron du casino vous demande de lui expliquer comment vous comptez vous y prendre via différents blocs. Tentez de lui expliquer votre procédure! (aussi appelée ``quick sort``)
+
+    Informations utiles:
+
+
+    - Les blocs ``x`` et ``y`` représentent chacun une carte;
+    - ``paquet`` représente le paquet de cartes;
+    - Tous les blocs doivent être utilisés au moins une fois;
+
+
+    Fonctionnement de Blockly:
+
+    - À gauche se trouve vos blocs disponibles, votre boîte à outils;
+    - À droite se trouve ce que vous comptez montrer au patron;
+    - Glissez les blocs de gauche à droite pour construire votre méthode;
+    - Il ne peut pas y avoir de bloc sans point d'accroche;
+    - Attention, les blocs doivent s'emboîter!
+
+    Voici un exemple avec un tas de 10 cartes*:
+
+          .. image:: Commenttrierdesnombres3/Sorting_quicksort_anim.gif
+               :height: 180px
+
+    (* tiré de https://commons.wikimedia.org/wiki/File:Sorting_quicksort_anim.gif?uselang=fr)
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '30'
+    output: '2'
+    memory: '100'
+name: 'Le tri rapide: Entretien stressant'
+network_grading: false
+order: 7
+problems:
+    quick_sort:
+        options:
+            zoom:
+                maxScale: 3.0
+                startScale: 1.0
+                minScale: 0.3
+                controls: true
+                scaleSpeed: 1.2
+                wheel: false
+            maxBlocks: Infinity
+            toolboxPosition: start
+            scrollbars: true
+            grid:
+                snap: true
+                spacing: 20
+                colour: '#ccc'
+                length: 3
+            oneBasedIndex: true
+            css: true
+            media: plugins/blockly/static/blockly/media/
+        header: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables>
+                <variable type="">paquet</variable>
+              </variables>
+              <block type="procedures_defreturn">
+                <mutation>
+                  <arg name="paquet" varid=";|{[uy[.XhvQ~J8:nif"></arg>
+                </mutation>
+                <field name="NAME">trier</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+            </xml>
+        blocks_files:
+        - blocks.js
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables>
+                <variable type="">Nouvelle liste</variable>
+                <variable type="">sup_list</variable>
+                <variable type="">pivot</variable>
+                <variable type="">inf_list</variable>
+                <variable type="">carte</variable>
+                <variable type="">paquet</variable>
+              </variables>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">Nouvelle liste</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">Nouvelle liste</field>
+              </block>
+              <block type="lists_isEmpty"></block>
+              <block type="lists_create_with">
+                <mutation items="0"></mutation>
+              </block>
+              <block type="lists_create_with">
+                <mutation items="0"></mutation>
+              </block>
+              <block type="controls_if"></block>
+              <block type="logic_negate"></block>
+              <block type="lists_getIndex">
+                <mutation statement="false" at="false"></mutation>
+                <field name="MODE">GET_REMOVE</field>
+                <field name="WHERE">LAST</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">pivot</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">paquet</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">paquet</field>
+              </block>
+              <block type="lists_create_with">
+                <mutation items="0"></mutation>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">sup_list</field>
+              </block>
+              <block type="logic_compare">
+                <field name="OP">LTE</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">inf_list</field>
+              </block>
+              <block type="controls_if">
+                <mutation else="1"></mutation>
+              </block>
+              <block type="controls_forEach">
+                <field name="VAR" variabletype="">carte</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">pivot</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">carte</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">paquet</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">carte</field>
+              </block>
+              <block type="lists_setIndex">
+                <mutation at="false"></mutation>
+                <field name="MODE">INSERT</field>
+                <field name="WHERE">FIRST</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">sup_list</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">inf_list</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">inf_list</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">carte</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">sup_list</field>
+              </block>
+              <block type="lists_setIndex">
+                <mutation at="false"></mutation>
+                <field name="MODE">INSERT</field>
+                <field name="WHERE">FIRST</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">Nouvelle liste</field>
+              </block>
+              <block type="append"></block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">sup_list</field>
+              </block>
+              <block type="append"></block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">pivot</field>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">inf_list</field>
+              </block>
+            </xml>
+        name: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0

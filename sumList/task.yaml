@@ -1,0 +1,87 @@
+accessible: true
+author: Sophie Schorochoff
+context: |-
+    - Agencez les blocs pour compléter la fonction ``sommeListe``
+    - Cette fonction doit retourner la somme des éléments de la liste ``Liste``
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    output: '2'
+    memory: '100'
+    time: '30'
+name: Somme d'une liste
+network_grading: false
+problems:
+    sum:
+        options:
+            grid:
+                length: 3
+                colour: '#ccc'
+                snap: true
+                spacing: 20
+            zoom:
+                minScale: 0.3
+                controls: true
+                startScale: 1.0
+                scaleSpeed: 1.2
+                maxScale: 3.0
+                wheel: false
+            oneBasedIndex: true
+            maxBlocks: Infinity
+            toolboxPosition: start
+            scrollbars: true
+            media: plugins/blockly/static/blockly/media/
+            css: true
+        name: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables>
+                <variable type="">Liste</variable>
+              </variables>
+              <block type="procedures_defreturn">
+                <mutation>
+                  <arg name="Liste" varid="*grfc)cAAb7;@~-2v|"></arg>
+                </mutation>
+                <field name="NAME">sommeListe</field>
+                <comment pinned="false" h="80" w="160">Décrire cette fonction…</comment>
+              </block>
+            </xml>
+        header: ''
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables>
+                <variable type="">e</variable>
+                <variable type="">élément</variable>
+                <variable type="">sum</variable>
+              </variables>
+              <block type="controls_forEach">
+                <field name="VAR" variabletype="">e</field>
+              </block>
+              <block type="math_change">
+                <field name="VAR" variabletype="">élément</field>
+                <value name="DELTA">
+                  <shadow type="math_number">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+              <block type="variables_get">
+                <field name="VAR" variabletype="">e</field>
+              </block>
+              <block type="math_number">
+                <field name="NUM">0</field>
+              </block>
+              <block type="variables_set">
+                <field name="VAR" variabletype="">sum</field>
+              </block>
+            </xml>
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
+order: 10
