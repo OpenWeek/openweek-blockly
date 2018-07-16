@@ -1,0 +1,90 @@
+accessible: true
+author: Ilias Boutchichi
+context: |-
+    La nuit, vous êtes un joueur de cartes invétéré et vous avez l'habitude de trier vos cartes par insertion. Mais la journée... vous travaillez à la commune et vous êtes chargés de trier la liste des habitants par âge.
+
+    Vous vous décidez à créer un programme qui vous simplifiera la vie. Pour ce faire, assemblez les blocs de sorte que l'algorithme trie correctement n'importe quelle liste *A*.
+
+    **Principe du tri:**
+
+    Votre tri préféré est intuitif et consiste à parcourir une liste *A* d'éléments dans un sens en les triant en même temps. Dès que vous tombez sur un élément *i* de valeur inférieur aux éléments déjà parcourus, vous le mettez de côté et parcourez en arrière la liste déjà triée jusqu'à ce que vous ne trouviez plus d'élément supérieur à celui mis à l'écart. À ce moment là, vous insérez cet élément *i* à cet endroit de la liste et continuez le tri à l'endroit où vous vous étiez arrêté.
+
+    **Exemple:**
+
+    .. image:: insertion_sort/example.gif
+
+
+    https://fr.wikipedia.org/wiki/Tri_par_insertion#/media/File:Insertion-sort-example-300px.gif
+
+
+    **Remarque:**
+
+    Avant de valider votre réponse, vous pouvez tester vos blocs en cliquant sur 'Run'.
+environment: default
+evaluate: best
+groups: false
+input_random: '0'
+limits:
+    time: '10'
+    memory: '100'
+    output: '2'
+name: 1. Tri par insertion
+network_grading: false
+problems:
+    algo:
+        options:
+            visual:
+                position: left
+            zoom:
+                startScale: 1.0
+                minScale: 0.3
+                maxScale: 3.0
+                controls: true
+                scaleSpeed: 1.2
+                wheel: false
+            media: plugins/blockly/static/blockly/media/
+            css: true
+            grid:
+                snap: true
+                length: 3
+                colour: '#ccc'
+                spacing: 20
+            scrollbars: true
+            toolboxPosition: start
+            maxBlocks: '8'
+        files:
+        - svg_min.js
+        - insertion_sort.js
+        type: blockly
+        toolbox: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+            <category name="Assignements" colour="330">
+              <variables></variables>
+              <block type="assign_tmp"></block>
+              <block type="assign_index_j"></block>
+              <block type="decrease_j"></block>
+            </category><category name="Boucles" colour="120">
+              <variables></variables>
+              <block type="for_each_greater"></block>
+              <block type="for_each_list"></block>
+            </category><category name="Liste" colour="210">
+              <variables></variables>
+              <block type="assign_greater_elem"></block>
+              <block type="put_x"></block>
+            </category></xml>
+        blocks_files:
+        - customblocks.js
+        name: ''
+        workspace: |-
+            <xml xmlns="http://www.w3.org/1999/xhtml">
+              <variables></variables>
+              <block type="new_list" deletable="false" editable="false"></block>
+            </xml>
+        header: ''
+stored_submissions: 0
+submission_limit:
+    amount: -1
+    period: -1
+tags: {}
+weight: 1.0
